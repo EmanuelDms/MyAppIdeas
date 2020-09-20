@@ -1,18 +1,19 @@
 var number = document.querySelector('#num');
+var numValue = parseInt(number.value);
 
-function validateNum(x) {
-  // Validate number field
-  if (x === '') {
-    return false;
-  } else if (x !== 1 || x !== 0) {
-    return false;
-  }
-  return true;
+function isBinary(x) {
+  // Validate number fieldlog
+  return (x == 1 || x == 0);
 }
 
 function Bin2Dec() {
-  let verify = validateNum(number.value);
-  alert(verify ? number.value : 'invalid value!')
+  let verify = isBinary(numValue);
+  if (verify) {
+    alert(numValue);
+  } else {
+    alert('invalid value!');
+    number.value = '';
+  }
 }
 
 number.onchange = Bin2Dec;
